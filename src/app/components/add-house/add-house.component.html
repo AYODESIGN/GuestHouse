@@ -1,0 +1,107 @@
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">{{title}}</h3>
+              <form [formGroup]="addHouseForm">
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <input type="text" formControlName="name" id="name" class="form-control form-control-lg" />
+                      <label class="form-label" for="name">Name</label>
+                    </div>
+                    <div *ngIf="addHouseForm.controls['name'].invalid && (addHouseForm.controls['name'].touched || addHouseForm.controls['name'].dirty)">
+                      <div *ngIf="addHouseForm.controls['name'].errors.required">
+                        Name is required.
+                      </div>
+                      <div *ngIf="addHouseForm.controls['name'].errors.minlength">
+                        Name must have at least 3 characters.
+                      </div>
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <input type="text" id="address" formControlName="address" class="form-control form-control-lg" />
+                      <label class="form-label" for="address">Address</label>
+                    </div>
+                    <div *ngIf="addHouseForm.controls['address'].invalid && (addHouseForm.controls['address'].touched || addHouseForm.controls['address'].dirty)">
+                      <div *ngIf="addHouseForm.controls['address'].errors.required">
+                        Address is required.
+                      </div>
+                      <div *ngIf="addHouseForm.controls['address'].errors.minlength">
+                        Address must have at least 5 characters.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <input type="text" id="description" formControlName="description" class="form-control form-control-lg" />
+                      <label class="form-label" for="description">Description</label>
+                    </div>
+                    <div *ngIf="addHouseForm.controls['description'].invalid && (addHouseForm.controls['description'].touched || addHouseForm.controls['description'].dirty)">
+                      <div *ngIf="addHouseForm.controls['description'].errors.required">
+                        Description is required.
+                      </div>
+                      <div *ngIf="addHouseForm.controls['description'].errors.minlength">
+                        Description must have at least 10 characters.
+                      </div>
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <input type="text" id="city" formControlName="city" class="form-control form-control-lg" />
+                      <label class="form-label" for="city">City</label>
+                    </div>
+                    <div *ngIf="addHouseForm.controls['city'].invalid && (addHouseForm.controls['city'].touched || addHouseForm.controls['city'].dirty)">
+                      <div *ngIf="addHouseForm.controls['city'].errors.required">
+                        City is required.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+  
+                    <div class="form-outline">
+                      <input type="text" id="imgUrl" formControlName="imgUrl" class="form-control form-control-lg" />
+                      <label class="form-label" for="imgUrl">Image URL</label>
+                    </div>
+                    <div *ngIf="addHouseForm.controls['imgUrl'].invalid && (addHouseForm.controls['imgUrl'].touched || addHouseForm.controls['imgUrl'].dirty)">
+                      <div *ngIf="addHouseForm.controls['imgUrl'].errors.required">
+                        Image URL is required.
+                      </div>
+                      <div *ngIf="addHouseForm.controls['imgUrl'].errors.pattern">
+                        Invalid URL format. It should start with 'http://' or 'https://'.
+                      </div>
+                    </div>
+  
+                  </div>
+                </div>
+  
+                <div class="mt-4 pt-2">
+                  <button *ngIf="!houseId" (click)="addHouse()" class="btn btn-primary btn-lg" type="submit" [disabled]="addHouseForm.invalid">Add House</button>
+                  <button *ngIf="houseId" (click)="editHouse()" class="btn btn-primary btn-lg" type="submit" [disabled]="addHouseForm.invalid">Edit House</button>
+
+                </div>
+  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

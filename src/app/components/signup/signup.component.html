@@ -1,0 +1,142 @@
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">{{title}}</h3>
+              <form [formGroup]="signUpForm">
+                
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <input type="text"  formControlName="firstName" id="firstName" class="form-control form-control-lg" />
+                      <label class="form-label" for="firstName">First Name</label>
+                    </div>
+                    <div *ngIf="signUpForm.controls['firstName'].invalid && (signUpForm.controls['firstName'].touched || signUpForm.controls['firstName'].dirty)">
+                        <div *ngIf="signUpForm.controls['firstName'].errors.required">
+                          First Name is required.
+                        </div>
+                        <div *ngIf="signUpForm.controls['firstName'].errors.minlength">
+                          First Name must have at least 3 characters.
+                        </div>
+                      </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <input type="text" id="lastName" formControlName="lastName" class="form-control form-control-lg" />
+                      <label class="form-label" for="lastName">Last Name</label>
+                    </div>
+                    <div *ngIf="signUpForm.controls['lastName'].invalid && (signUpForm.controls['lastName'].touched || signUpForm.controls['lastName'].dirty)">
+                        <div *ngIf="signUpForm.controls['lastName'].errors.required">
+                          Last Name is required.
+                        </div>
+                        <div *ngIf="signUpForm.controls['lastName'].errors.minlength">
+                          last Name must have at least 5 characters.
+                        </div>
+                      </div>
+                  </div>
+                </div>
+  
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+    
+                      <div class="form-outline">
+                        <input type="text" id="firstName"  formControlName="phone" class="form-control form-control-lg" />
+                        <label class="form-label" for="firstName">Phone</label>
+                      </div>
+                      <div class="m-auto" *ngIf="signUpForm.controls['phone'].invalid && (signUpForm.controls['phone'].touched || signUpForm.controls['phone'].dirty)">
+                        <div *ngIf="signUpForm.controls['phone'].errors.required">
+                          Phone is required.
+                        </div>
+                        <div *ngIf="signUpForm.controls['phone'].errors.pattern">
+                            Phone must be a number.
+                          </div>
+                        <div *ngIf="signUpForm.controls['phone'].errors.minlength">
+                            Phone must have at least 8 digits.
+                        </div>
+                      </div>
+    
+                    </div>
+                    <div class="col-md-6 mb-4">
+    
+                      <div class="form-outline">
+                        <input type="text" id="lastName" formControlName="address" class="form-control form-control-lg" />
+                        <label class="form-label" for="lastName">Address</label>
+                      </div>
+                      <div class="m-auto" *ngIf="signUpForm.controls['address'].invalid && (signUpForm.controls['address'].touched || signUpForm.controls['address'].dirty)">
+                        <div *ngIf="signUpForm.controls['address'].errors.required">
+                          Address is required.
+                        </div>
+                        <div *ngIf="signUpForm.controls['address'].errors.minlength">
+                            Address must have at least 5 characters.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+  
+                    <div class="form-outline">
+                      <input type="email" id="emailAddress" formControlName="email" class="form-control form-control-lg" />
+                      <label class="form-label" for="emailAddress">Email</label>
+                    </div>
+                    <div class="m-auto" *ngIf="signUpForm.controls['email'].invalid && (signUpForm.controls['email'].touched || signUpForm.controls['email'].dirty)">
+                        <div *ngIf="signUpForm.controls['email'].errors.required">
+                          Email is required.
+                        </div>
+                        <div *ngIf="signUpForm.controls['email'].errors.email">
+                           Invalid Email.
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6 mb-4 pb-2">
+  
+                    <div class="form-outline">
+                      <input type="password" formControlName="password" id="phoneNumber" class="form-control form-control-lg" />
+                      <label class="form-label" for="password">password</label>
+                    </div>
+                    <div *ngIf="signUpForm.controls['password'].invalid && (signUpForm.controls['password'].touched || signUpForm.controls['password'].dirty)">
+                        <div *ngIf="signUpForm.controls['password'].errors.required">
+                          Password is required.
+                        </div>
+                        <div *ngIf="signUpForm.controls['password'].errors.minlength">
+                           Password must have at least 6 characters.
+                        </div>
+                        <div *ngIf="signUpForm.controls['password'].errors.maxlength">
+                           Password must have at most 12 characters.
+                        </div>
+                      </div>
+                  </div>
+                </div>
+  
+                <!-- <div class="row">
+                  <div class="col-12">
+  
+                    <select class="select form-control-lg">
+                      <option value="1" disabled>Choose option</option>
+                      <option value="2">Subject 1</option>
+                      <option value="3">Subject 2</option>
+                      <option value="4">Subject 3</option>
+                    </select>
+                    <label class="form-label select-label">Choose option</label>
+  
+                  </div>
+                </div> -->
+  
+                <div class="mt-4 pt-2">
+                    <button class="btn btn-primary btn-lg" type="submit" (click)="signup()" [disabled]="signUpForm.invalid" >Signup</button>
+                </div>
+  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

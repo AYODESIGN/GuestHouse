@@ -1,0 +1,76 @@
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">login</h3>
+              <form [formGroup]="loginForm">
+                
+  
+                
+                <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+  
+                    <div class="form-outline">
+                      <input type="email" id="emailAddress" formControlName="email" class="form-control form-control-lg" />
+                      <label class="form-label" for="emailAddress">Email</label>
+                    </div>
+                    <div class="m-auto" *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].touched || loginForm.controls['email'].dirty)">
+                        <div *ngIf="loginForm.controls['email'].errors.required">
+                          Email is required.
+                        </div>
+                        <div *ngIf="loginForm.controls['email'].errors.email">
+                           Invalid Email.
+                        </div>
+                      </div>
+                  </div>
+                
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+  
+                        <div class="form-outline">
+                          <input type="password" formControlName="password" id="phoneNumber" class="form-control form-control-lg" />
+                          <label class="form-label" for="password">password</label>
+                        </div>
+                        <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].touched || loginForm.controls['password'].dirty)">
+                            <div *ngIf="loginForm.controls['password'].errors.required">
+                              Password is required.
+                            </div>
+                            <div *ngIf="loginForm.controls['password'].errors.minlength">
+                               Password must have at least 6 characters.
+                            </div>
+                            <div *ngIf="loginForm.controls['password'].errors.maxlength">
+                               Password must have at most 12 characters.
+                            </div>
+                          </div>
+                  </div>
+                </div>
+  
+                <!-- <div class="row">
+                  <div class="col-12">
+  
+                    <select class="select form-control-lg">
+                      <option value="1" disabled>Choose option</option>
+                      <option value="2">Subject 1</option>
+                      <option value="3">Subject 2</option>
+                      <option value="4">Subject 3</option>
+                    </select>
+                    <label class="form-label select-label">Choose option</label>
+  
+                  </div>
+                </div> -->
+  
+                <div class="mt-4 pt-2">
+                    <button class="btn btn-primary btn-lg" type="submit" (click)="login()" [disabled]="loginForm.invalid" placeholder="">Login</button>
+                </div>
+  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,26 @@
+<h2>Houses Table</h2>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>House Name</th>
+            <th>City</th>
+            <th>Rooms</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor=" let house of houses">
+         
+                <td><img width="70px" src="{{house.imgUrl}}" alt=""></td>
+                <td><span></span>{{ house.name }}</td>
+                <td>{{ house.city }}</td>
+                <td>{{calculateTotalRooms(house)}}</td>
+                <td>
+                 <button (click)="deleteHouse(house.id)" class="btn btn-danger mr-2">Delete</button>
+                 <button (click)="editHouse(house.id)" class="btn btn-success mr-2">Edit</button>
+                </td>
+        <tbody>
+    </table>
+</div>
